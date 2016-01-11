@@ -9,4 +9,9 @@
 
 @interface SAArtist : NSObject
 
+@property NSString *spotifyName;
+@property NSString *spotifyID;
+@property NSString *spotifyBiography;
+// TODO: spotifyImage property
+
 @end
