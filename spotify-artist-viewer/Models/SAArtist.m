@@ -9,4 +9,12 @@
 
 @implementation SAArtist
 
+- (instancetype)init:(NSDictionary *)json {
+	self = [super init];
+	if (self) {
+		self.spotifyName = json;
+	}
+	return self;
+}
+
 @end
