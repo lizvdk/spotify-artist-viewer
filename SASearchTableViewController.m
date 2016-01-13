@@ -14,12 +14,14 @@
 
 @implementation SASearchTableViewController {
 	UISearchController *searchController;
+	NSMutableArray *spotifyArtists;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
 	[self setUpSearchController];
+	[self search];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +42,18 @@
 	self.tableView.tableHeaderView = searchController.searchBar;
 	self.definesPresentationContext = YES;
 	[searchController.searchBar sizeToFit];
+}
+
+- (void)search {
+	[super viewDidLoad];
+ 
+	NSURLSession *session = [NSURLSession sharedSession];
+	NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://api.spotify.com/v1/search?q=david+bowie&type=artist"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+		NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+		NSLog(@"%@", json);
+	}];
+ 
+	[dataTask resume];
 }
 
 #pragma mark - SearchDelegate
