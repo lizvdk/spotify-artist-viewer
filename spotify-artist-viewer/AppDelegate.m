@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "SASearchTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +16,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	ViewController *viewController = [ViewController new];
-	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
+	SASearchTableViewController *searchViewController = [SASearchTableViewController new];
+	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:searchViewController];
 	
 	CGRect screenFrame = [UIScreen mainScreen].bounds;
 	self.window = [[UIWindow alloc] initWithFrame:screenFrame];
