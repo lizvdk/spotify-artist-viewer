@@ -12,6 +12,8 @@
 
 @interface SASearchTableViewController ()
 
+- (void)search:(NSString *)query;
+
 @end
 
 @implementation SASearchTableViewController {
@@ -25,7 +27,6 @@
 	spotifyArtists = [[NSMutableArray alloc] init];
 
 	[self setUpSearchController];
-	[self search];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,9 +49,10 @@
 	[searchController.searchBar sizeToFit];
 }
 
-- (void)search {
+- (void)search:(NSString*)query {
+	NSString *spotifyEndpoint = [NSString stringWithFormat:@"https://api.spotify.com/v1/search?q=%@&type=artist", query];
 	NSURLSession *session = [NSURLSession sharedSession];
-	NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://api.spotify.com/v1/search?q=david+bowie&type=artist"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+	NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:spotifyEndpoint] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 		NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 		
 		// Decode JSON and create SAArtist objects
@@ -74,7 +76,10 @@
 #pragma mark - SearchDelegate
 
 -(void) updateSearchResultsForSearchController:(UISearchController *)searchController {
-	// Search code
+	NSString *query = searchController.searchBar.text;
+	if (query.length != 0) { // I know this is wrong but somehow it works.
+		[self search:query];
+	};
 }
 
 #pragma mark - Table view data source
