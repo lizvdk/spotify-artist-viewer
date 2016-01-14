@@ -54,19 +54,23 @@
 	NSString *spotifyEndpoint = [NSString stringWithFormat:@"https://api.spotify.com/v1/search?q=%@&type=artist", query];
 	NSURLSession *session = [NSURLSession sharedSession];
 	NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:spotifyEndpoint] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-		NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 		
-		// Decode JSON and create SAArtist objects
-		NSArray *artists = json[@"artists"][@"items"];
-		NSMutableArray *tmp = [NSMutableArray array];
-		for (int i = 0; i < [artists count]; ++i) {
-			[tmp addObject:[[SAArtist alloc] init:artists[i][@"name"] spotifyID:artists[i][@"id"]]];
+		if (data != nil) {
+			NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+			
+			// Decode JSON and create SAArtist objects
+			NSArray *artists = json[@"artists"][@"items"];
+			NSMutableArray *tmp = [NSMutableArray array];
+			for (int i = 0; i < [artists count]; ++i) {
+				[tmp addObject:[[SAArtist alloc] init:artists[i][@"name"] spotifyID:artists[i][@"id"]]];
+			}
+			
+			// Reload view with the new data
+			[spotifyArtists removeAllObjects];
+			[spotifyArtists addObjectsFromArray:tmp];
+			[self.tableView reloadData];
 		}
 
-		// Reload view with the new data
-		[spotifyArtists removeAllObjects];
-		[spotifyArtists addObjectsFromArray:tmp];
-		[self.tableView reloadData];
 	}];
  
 	[dataTask resume];
