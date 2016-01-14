@@ -7,6 +7,7 @@
 //
 
 #import "SASearchTableViewController.h"
+#import "SAArtist.h"
 
 @interface SASearchTableViewController ()
 
@@ -50,7 +51,13 @@
 	NSURLSession *session = [NSURLSession sharedSession];
 	NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://api.spotify.com/v1/search?q=david+bowie&type=artist"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 		NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-		NSLog(@"%@", json);
+		
+		// Decode JSON and create SAArtist objects
+		NSArray *artists = json[@"artists"][@"items"];
+		NSMutableArray *tmp = [NSMutableArray array];
+		for (int i = 0; i < [artists count]; ++i) {
+			[tmp addObject:[[SAArtist alloc] init:artists[i][@"name"]]];
+		}
 	}];
  
 	[dataTask resume];
