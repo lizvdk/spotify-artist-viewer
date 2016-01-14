@@ -9,10 +9,11 @@
 
 @implementation SAArtist
 
-- (instancetype)init:(NSString *)name {
+- (instancetype)init:(NSString *)name spotifyID:(NSString *)spotifyID {
 	self = [super init];
 	if (self) {
 		self.spotifyName = name;
+		self.spotifyID = spotifyID;
 	}
 	return self;
 }

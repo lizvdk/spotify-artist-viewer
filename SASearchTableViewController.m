@@ -59,7 +59,7 @@
 		NSArray *artists = json[@"artists"][@"items"];
 		NSMutableArray *tmp = [NSMutableArray array];
 		for (int i = 0; i < [artists count]; ++i) {
-			[tmp addObject:[[SAArtist alloc] init:artists[i][@"name"]]];
+			[tmp addObject:[[SAArtist alloc] init:artists[i][@"name"] spotifyID:artists[i][@"id"]]];
 		}
 
 		// Reload view with the new data

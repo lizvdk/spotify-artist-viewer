@@ -9,7 +9,7 @@
 
 @interface SAArtist : NSObject
 
-- (instancetype)init:(NSString*)name;
+- (instancetype)init:(NSString*)name spotifyID:(NSString *)spotifyID;
 
 @property NSString *spotifyName;
 @property NSString *spotifyID;
