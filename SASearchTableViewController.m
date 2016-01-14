@@ -8,6 +8,7 @@
 
 #import "SASearchTableViewController.h"
 #import "SAArtist.h"
+#import "SAArtistTableViewCell.h"
 
 @interface SASearchTableViewController ()
 
@@ -20,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	[self.tableView registerClass: [SAArtistTableViewCell class] forCellReuseIdentifier:@"artistCell"];
 	spotifyArtists = [[NSMutableArray alloc] init];
 
 	[self setUpSearchController];
@@ -56,19 +58,17 @@
 		NSMutableArray *tmp = [NSMutableArray array];
 		for (int i = 0; i < [artists count]; ++i) {
 			[tmp addObject:[[SAArtist alloc] init:artists[i][@"name"]]];
-			SAArtist *lastArtist = [tmp lastObject];
-			NSLog(@"%@", lastArtist.spotifyName);
 		}
 
 		// Reload view with the new data
 		[spotifyArtists removeAllObjects];
 		[spotifyArtists addObjectsFromArray:tmp];
-//		NSLog(@"%@", spotifyArtists);
-		
+		[self.tableView reloadData];
 	}];
  
 	[dataTask resume];
-	[self.tableView reloadData];
+	
+	
 }
 
 #pragma mark - SearchDelegate

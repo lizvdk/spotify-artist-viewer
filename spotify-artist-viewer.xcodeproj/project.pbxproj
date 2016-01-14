@@ -16,6 +16,8 @@
 		2E7674571B26772600336867 /* SARequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7674561B26772600336867 /* SARequestManager.m */; };
 		C05FF78D1C46E342001C6DDF /* SASearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C05FF78B1C46E342001C6DDF /* SASearchTableViewController.m */; };
 		C05FF78E1C46E342001C6DDF /* SASearchTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C05FF78C1C46E342001C6DDF /* SASearchTableViewController.xib */; };
+		C09A49381C481D7300455EF7 /* SAArtistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A49361C481D7300455EF7 /* SAArtistTableViewCell.m */; };
+		C09A49391C481D7300455EF7 /* SAArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C09A49371C481D7300455EF7 /* SAArtistTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,9 @@
 		C05FF78A1C46E342001C6DDF /* SASearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SASearchTableViewController.h; path = ../SASearchTableViewController.h; sourceTree = "<group>"; };
 		C05FF78B1C46E342001C6DDF /* SASearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SASearchTableViewController.m; path = ../SASearchTableViewController.m; sourceTree = "<group>"; };
 		C05FF78C1C46E342001C6DDF /* SASearchTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SASearchTableViewController.xib; path = ../SASearchTableViewController.xib; sourceTree = "<group>"; };
+		C09A49351C481D7300455EF7 /* SAArtistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAArtistTableViewCell.h; sourceTree = "<group>"; };
+		C09A49361C481D7300455EF7 /* SAArtistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAArtistTableViewCell.m; sourceTree = "<group>"; };
+		C09A49371C481D7300455EF7 /* SAArtistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAArtistTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +98,9 @@
 				2E76742F1B26766200336867 /* AppDelegate.m */,
 				C05FF78A1C46E342001C6DDF /* SASearchTableViewController.h */,
 				C05FF78B1C46E342001C6DDF /* SASearchTableViewController.m */,
+				C09A49351C481D7300455EF7 /* SAArtistTableViewCell.h */,
+				C09A49361C481D7300455EF7 /* SAArtistTableViewCell.m */,
+				C09A49371C481D7300455EF7 /* SAArtistTableViewCell.xib */,
 				C05FF78C1C46E342001C6DDF /* SASearchTableViewController.xib */,
 				2E7674371B26766200336867 /* Images.xcassets */,
 				2E7674391B26766200336867 /* LaunchScreen.xib */,
@@ -225,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C09A49391C481D7300455EF7 /* SAArtistTableViewCell.xib in Resources */,
 				C05FF78E1C46E342001C6DDF /* SASearchTableViewController.xib in Resources */,
 				2E76743B1B26766200336867 /* LaunchScreen.xib in Resources */,
 				2E7674381B26766200336867 /* Images.xcassets in Resources */,
@@ -247,6 +256,7 @@
 			files = (
 				2E7674541B2676F400336867 /* SAArtist.m in Sources */,
 				C05FF78D1C46E342001C6DDF /* SASearchTableViewController.m in Sources */,
+				C09A49381C481D7300455EF7 /* SAArtistTableViewCell.m in Sources */,
 				2E7674301B26766200336867 /* AppDelegate.m in Sources */,
 				2E76742D1B26766200336867 /* main.m in Sources */,
 				2E7674571B26772600336867 /* SARequestManager.m in Sources */,
