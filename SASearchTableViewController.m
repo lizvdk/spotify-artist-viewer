@@ -20,7 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
+	spotifyArtists = [[NSMutableArray alloc] init];
+
 	[self setUpSearchController];
 	[self search];
 }
@@ -46,8 +47,6 @@
 }
 
 - (void)search {
-	[super viewDidLoad];
- 
 	NSURLSession *session = [NSURLSession sharedSession];
 	NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://api.spotify.com/v1/search?q=david+bowie&type=artist"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 		NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
@@ -57,10 +56,19 @@
 		NSMutableArray *tmp = [NSMutableArray array];
 		for (int i = 0; i < [artists count]; ++i) {
 			[tmp addObject:[[SAArtist alloc] init:artists[i][@"name"]]];
+			SAArtist *lastArtist = [tmp lastObject];
+			NSLog(@"%@", lastArtist.spotifyName);
 		}
+
+		// Reload view with the new data
+		[spotifyArtists removeAllObjects];
+		[spotifyArtists addObjectsFromArray:tmp];
+//		NSLog(@"%@", spotifyArtists);
+		
 	}];
  
 	[dataTask resume];
+	[self.tableView reloadData];
 }
 
 #pragma mark - SearchDelegate
@@ -72,24 +80,22 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+	return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [spotifyArtists count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"artistCell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+	SAArtist *artist = [spotifyArtists objectAtIndex:indexPath.row];
+	cell.textLabel.text = artist.spotifyName;
+	
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

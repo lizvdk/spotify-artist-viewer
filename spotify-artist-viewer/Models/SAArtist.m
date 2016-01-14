@@ -9,10 +9,10 @@
 
 @implementation SAArtist
 
-- (instancetype)init:(NSDictionary *)json {
+- (instancetype)init:(NSString *)name {
 	self = [super init];
 	if (self) {
-		self.spotifyName = json;
+		self.spotifyName = name;
 	}
 	return self;
 }

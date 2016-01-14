@@ -9,7 +9,7 @@
 
 @interface SAArtist : NSObject
 
-- (instancetype)init:(NSDictionary*)json;
+- (instancetype)init:(NSDictionary*)name;
 
 @property NSString *spotifyName;
 @property NSString *spotifyID;
