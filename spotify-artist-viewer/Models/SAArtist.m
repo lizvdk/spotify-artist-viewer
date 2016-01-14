@@ -14,6 +14,7 @@
 	if (self) {
 		self.spotifyName = name;
 		self.spotifyID = spotifyID;
+		self.spotifyBiography = @"Bio not available.";
 	}
 	return self;
 }
