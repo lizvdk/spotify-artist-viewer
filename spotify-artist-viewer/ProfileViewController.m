@@ -22,10 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = _spotifyArtist.spotifyName;
-//	[self search:_spotifyArtist.spotifyID];
-	[self search:@"ARH6W4X1187B99274F"];
-
 	
+	[self search:_spotifyArtist.spotifyID];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,7 +32,7 @@
 }
 
 - (void)search:(NSString*)query {
-	NSString *enEndpoint = [NSString stringWithFormat:@"https://developer.echonest.com/api/v4/artist/biographies?api_key=QKSXKY1V55I8HRTJK&id=%@&format=json&results=1&start=0&license=cc-by-sa", query];
+	NSString *enEndpoint = [NSString stringWithFormat:@"https://developer.echonest.com/api/v4/artist/biographies?api_key=QKSXKY1V55I8HRTJK&id=spotify:artist:%@&format=json&results=1&start=0&license=cc-by-sa", query];
 	
 	NSURLSession *session = [NSURLSession sharedSession];
 	NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:enEndpoint] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
