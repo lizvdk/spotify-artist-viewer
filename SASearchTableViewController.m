@@ -17,15 +17,12 @@
 
 @end
 
-@implementation SASearchTableViewController {
-	UISearchController *searchController;
-	NSMutableArray *spotifyArtists;
-}
+@implementation SASearchTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self.tableView registerClass: [SAArtistTableViewCell class] forCellReuseIdentifier:@"artistCell"];
-	spotifyArtists = [[NSMutableArray alloc] init];
+	self.spotifyArtists = [[NSMutableArray alloc] init];
 
 	[self setUpSearchController];
 	self.title = @"Spotify Artist Viewer";
@@ -40,15 +37,15 @@
 
 -(void) setUpSearchController {
 	// Search controller
-	searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-	searchController.searchResultsUpdater = self;
-	searchController.dimsBackgroundDuringPresentation = NO;
-	searchController.searchBar.delegate = self;
+	self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+	self.searchController.searchResultsUpdater = self;
+	self.searchController.dimsBackgroundDuringPresentation = NO;
+	self.searchController.searchBar.delegate = self;
 	
 	// Add the search bar
-	self.tableView.tableHeaderView = searchController.searchBar;
+	self.tableView.tableHeaderView = self.searchController.searchBar;
 	self.definesPresentationContext = YES;
-	[searchController.searchBar sizeToFit];
+	[self.searchController.searchBar sizeToFit];
 }
 
 - (void)search:(NSString*)query {
@@ -67,8 +64,8 @@
 			}
 			
 			// Reload view with the new data
-			[spotifyArtists removeAllObjects];
-			[spotifyArtists addObjectsFromArray:tmp];
+			[self.spotifyArtists removeAllObjects];
+			[self.spotifyArtists addObjectsFromArray:tmp];
 			[self.tableView reloadData];
 		}
 	}];
@@ -92,13 +89,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [spotifyArtists count];
+    return [self.spotifyArtists count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"artistCell" forIndexPath:indexPath];
     
-	SAArtist *artist = [spotifyArtists objectAtIndex:indexPath.row];
+	SAArtist *artist = [self.spotifyArtists objectAtIndex:indexPath.row];
 	cell.textLabel.text = artist.spotifyName;
 	
     return cell;
@@ -109,7 +106,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ProfileViewController *profileViewController = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
 
-	profileViewController.spotifyArtist = [spotifyArtists objectAtIndex:indexPath.row];
+	profileViewController.spotifyArtist = [self.spotifyArtists objectAtIndex:indexPath.row];
 
     [self.navigationController pushViewController:profileViewController animated:YES];
 }

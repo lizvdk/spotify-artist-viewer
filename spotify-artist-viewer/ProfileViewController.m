@@ -46,12 +46,9 @@
 
 - (void)updateBio {
 	self.bioTextView.text = self.spotifyArtist.spotifyBiography;
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		
-		NSString *ImageURL = self.spotifyArtist.spotifyImageURL;
-		NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:ImageURL]];
-		self.artistImageView.image = [UIImage imageWithData:imageData];
-	});
+	NSString *ImageURL = self.spotifyArtist.spotifyImageURL;
+	NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:ImageURL]];
+	self.artistImageView.image = [UIImage imageWithData:imageData];
 }
 
 @end

@@ -10,4 +10,7 @@
 
 @interface SASearchTableViewController : UITableViewController
 
+@property (nonatomic) UISearchController *searchController;
+@property (nonatomic) NSMutableArray *spotifyArtists;
+
 @end
