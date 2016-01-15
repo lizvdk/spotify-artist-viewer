@@ -20,10 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 	self.edgesForExtendedLayout = UIRectEdgeNone;
-	self.title = _spotifyArtist.spotifyName;
+	self.title = self.spotifyArtist.spotifyName;
 	
-	[self search:_spotifyArtist.spotifyID];
+	[self search:self.spotifyArtist.spotifyID];
 }
 
 - (void)search:(NSString*)query {
@@ -41,11 +42,11 @@
 	}];
  
 	[dataTask resume];
-	
 }
 
 - (void)updateBio {
 	self.bioTextView.text = self.spotifyArtist.spotifyBiography;
+
 	NSString *ImageURL = self.spotifyArtist.spotifyImageURL;
 	NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:ImageURL]];
 	self.artistImageView.image = [UIImage imageWithData:imageData];
