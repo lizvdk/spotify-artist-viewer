@@ -28,6 +28,7 @@
 	spotifyArtists = [[NSMutableArray alloc] init];
 
 	[self setUpSearchController];
+	self.title = @"Spotify Artist Viewer";
 }
 
 - (void)didReceiveMemoryWarning {
