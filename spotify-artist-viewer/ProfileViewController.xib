@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController">
@@ -19,44 +18,33 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Retrieving biography..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4hB-rU-7r2">
-                    <rect key="frame" x="8" y="108" width="584" height="492"/>
+                    <rect key="frame" x="8" y="116" width="584" height="484"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VFc-gi-HfB">
-                    <rect key="frame" x="250" y="8" width="100" height="100"/>
+                    <rect key="frame" x="8" y="8" width="100" height="100"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="MEZ-Q3-3xA"/>
-                        <constraint firstAttribute="height" constant="100" id="l9m-54-aUT"/>
+                        <constraint firstAttribute="height" constant="100" id="1VB-YE-EFh"/>
+                        <constraint firstAttribute="width" constant="100" id="nuv-Ii-XpJ"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="4hB-rU-7r2" secondAttribute="bottom" id="7vC-kz-jcA"/>
-                <constraint firstAttribute="trailing" secondItem="4hB-rU-7r2" secondAttribute="trailing" constant="8" id="9aa-OM-zup"/>
-                <constraint firstAttribute="trailing" secondItem="4hB-rU-7r2" secondAttribute="trailing" constant="8" id="Btg-yQ-fuE"/>
-                <constraint firstAttribute="trailing" secondItem="VFc-gi-HfB" secondAttribute="trailing" id="Cwx-e2-hCs"/>
-                <constraint firstItem="VFc-gi-HfB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MlQ-ti-kxN"/>
-                <constraint firstItem="4hB-rU-7r2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="NKk-Kh-KG3"/>
-                <constraint firstItem="VFc-gi-HfB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="OP4-tf-rtp"/>
-                <constraint firstItem="4hB-rU-7r2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="YGo-l2-BkY"/>
-                <constraint firstItem="4hB-rU-7r2" firstAttribute="top" secondItem="VFc-gi-HfB" secondAttribute="bottom" constant="8" id="ZL3-iM-RVl"/>
-                <constraint firstItem="VFc-gi-HfB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="aKb-KP-Ysq"/>
-                <constraint firstItem="4hB-rU-7r2" firstAttribute="top" secondItem="VFc-gi-HfB" secondAttribute="bottom" constant="8" id="dql-Kn-bZ1"/>
-                <constraint firstAttribute="bottom" secondItem="4hB-rU-7r2" secondAttribute="bottom" id="kIk-1z-vnb"/>
-                <constraint firstItem="VFc-gi-HfB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="naY-GH-YrP"/>
-                <constraint firstItem="4hB-rU-7r2" firstAttribute="top" secondItem="VFc-gi-HfB" secondAttribute="bottom" id="yYu-Ac-iq2"/>
+                <constraint firstItem="4hB-rU-7r2" firstAttribute="top" secondItem="VFc-gi-HfB" secondAttribute="bottom" constant="8" id="1zI-IT-1vC"/>
+                <constraint firstItem="VFc-gi-HfB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2Pn-yw-4QE"/>
+                <constraint firstItem="VFc-gi-HfB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="Fi4-c3-9OM"/>
+                <constraint firstAttribute="bottom" secondItem="4hB-rU-7r2" secondAttribute="bottom" id="bvK-r2-uMD"/>
+                <constraint firstItem="4hB-rU-7r2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="c7c-W9-n3Y"/>
+                <constraint firstItem="4hB-rU-7r2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="rmi-6j-fAD"/>
+                <constraint firstAttribute="trailing" secondItem="4hB-rU-7r2" secondAttribute="trailing" constant="8" id="tM9-b3-zDD"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="ZL3-iM-RVl"/>
-                    <exclude reference="dql-Kn-bZ1"/>
-                    <exclude reference="Cwx-e2-hCs"/>
-                    <exclude reference="aKb-KP-Ysq"/>
-                    <exclude reference="naY-GH-YrP"/>
+                    <exclude reference="c7c-W9-n3Y"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="194" y="315"/>

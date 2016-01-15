@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.edgesForExtendedLayout = UIRectEdgeNone;
 	self.title = _spotifyArtist.spotifyName;
 	
 	[self search:_spotifyArtist.spotifyID];
