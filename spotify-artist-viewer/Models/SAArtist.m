@@ -12,10 +12,10 @@
 - (instancetype)init:(NSString *)name spotifyID:(NSString *)spotifyID {
 	self = [super init];
 	if (self) {
-		self.spotifyName = name;
-		self.spotifyID = spotifyID;
-		self.spotifyBiography = @"Bio not available.";
-		self.spotifyImageURL = @"http://thumbs.dreamstime.com/z/portrait-cute-dog-hat-7394863.jpg";
+		_spotifyName = name;
+		_spotifyID = spotifyID;
+		_spotifyBiography = @"Bio not available.";
+		_spotifyImageURL = @"http://thumbs.dreamstime.com/z/portrait-cute-dog-hat-7394863.jpg";
 	}
 	return self;
 }

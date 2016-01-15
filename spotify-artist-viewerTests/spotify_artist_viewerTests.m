@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "SAArtist.h"
 
 @interface spotify_artist_viewerTests : XCTestCase
 
@@ -25,16 +26,20 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
     }];
+}
+
+- (void)testInitSAArtist {
+	SAArtist *testArtist = [[SAArtist alloc] init:@"Test Name" spotifyID:@"1a2b3c"];
+	XCTAssertEqual(testArtist.spotifyName, @"Test Name");
+	XCTAssertEqual(testArtist.spotifyID, @"1a2b3c");
+	XCTAssert([testArtist.spotifyBiography isEqualToString:@"Bio not available."]);
+	XCTAssert(testArtist.spotifyImageURL, @"http://thumbs.dreamstime.com/z/portrait-cute-dog-hat-7394863.jpg");
+
 }
 
 @end
