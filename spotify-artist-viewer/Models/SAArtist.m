@@ -15,6 +15,7 @@
 		self.spotifyName = name;
 		self.spotifyID = spotifyID;
 		self.spotifyBiography = @"Bio not available.";
+		self.spotifyImageURL = @"http://thumbs.dreamstime.com/z/portrait-cute-dog-hat-7394863.jpg";
 	}
 	return self;
 }

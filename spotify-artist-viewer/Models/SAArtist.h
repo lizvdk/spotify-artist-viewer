@@ -14,6 +14,6 @@
 @property NSString *spotifyName;
 @property NSString *spotifyID;
 @property NSString *spotifyBiography;
-// TODO: spotifyImage property
+@property NSString *spotifyImageURL;
 
 @end
