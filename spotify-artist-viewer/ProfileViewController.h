@@ -12,6 +12,5 @@
 @interface ProfileViewController : UIViewController
 
 @property SAArtist *spotifyArtist;
-@property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
 
 @end

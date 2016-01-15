@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SASearchTableViewController : UITableViewController <UISearchBarDelegate, UISearchResultsUpdating>
+@interface SASearchTableViewController : UITableViewController
 
 @end

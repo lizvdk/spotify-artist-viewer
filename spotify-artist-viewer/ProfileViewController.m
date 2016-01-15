@@ -14,12 +14,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *artistImageView;
 
-
 @end
 
-@implementation ProfileViewController {
-//	SAArtist *spotifyArtist;
-}
+@implementation ProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,11 +24,6 @@
 	self.title = _spotifyArtist.spotifyName;
 	
 	[self search:_spotifyArtist.spotifyID];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)search:(NSString*)query {
@@ -46,7 +38,6 @@
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[self updateBio];
 		});
-
 	}];
  
 	[dataTask resume];
@@ -62,16 +53,5 @@
 		self.artistImageView.image = [UIImage imageWithData:imageData];
 	});
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
