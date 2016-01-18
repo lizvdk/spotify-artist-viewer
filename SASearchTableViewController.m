@@ -11,9 +11,12 @@
 #import "SAArtistTableViewCell.h"
 #import "ProfileViewController.h"
 
+NSString * const kSpotifyBaseURL = @"https://api.spotify.com/v1/";
+
 @interface SASearchTableViewController () <UISearchBarDelegate, UISearchResultsUpdating>
 
-- (void)search:(NSString *)query;
+@property (strong, nonatomic) UISearchController *searchController;
+@property (strong, nonatomic) NSMutableArray *spotifyArtists;
 
 @end
 
@@ -26,11 +29,6 @@
 
 	[self setUpSearchController];
 	self.title = @"Spotify Artist Viewer";
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Search
@@ -48,8 +46,8 @@
 	[self.searchController.searchBar sizeToFit];
 }
 
-- (void)search:(NSString*)query {
-	NSString *spotifyEndpoint = [NSString stringWithFormat:@"https://api.spotify.com/v1/search?q=%@&type=artist", query];
+- (void)searchWithQuery:(NSString*)query {
+	NSString * spotifyEndpoint = [self getEndpointURLStringWithQuery:query];
 	NSURLSession *session = [NSURLSession sharedSession];
 	NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:spotifyEndpoint] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 		
@@ -73,13 +71,17 @@
 	[dataTask resume];
 }
 
+- (NSString *)getEndpointURLStringWithQuery:(NSString *)query {
+	return [NSString stringWithFormat:@"%@search?q=%@&type=artist", kSpotifyBaseURL, query];
+}
+
 #pragma mark - SearchDelegate
 
 -(void) updateSearchResultsForSearchController:(UISearchController *)searchController {
 	NSString *query = searchController.searchBar.text;
-	if (query.length != 0) { // I know this is wrong but somehow it works.
-		[self search:query];
-	};
+	if (query.length != 0) {
+		[self searchWithQuery:query];
+	}
 }
 
 #pragma mark - Table view data source
